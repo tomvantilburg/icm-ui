@@ -213,36 +213,63 @@
       //    url: 'http://a.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png',
       //    type: 'xyz'
       //},
+	  osm_wgs84: {
+		name: 'Openstreetmap',
+		url: 'http://maps.opengeo.org/geowebcache/service/wms',
+		type: 'wms',
+		layerOptions: {
+			layers:'openstreetmap',
+			format: 'image/png'
+		}
+	  },
 	  "VAEBG1": {
 		type: "dynamic",
-		name: "Basemap (EN) ",
+		name: "Basemap (EN)",
 		visible: false,
 		url: "/service/abudhabi/rest/services/BaseMapEnglish/MapServer", 
-		layerOptions: {"layers":"show:0"}
+		layerOptions: {"layers":"show:0", position: 'back'}
 	  }
   },
   layers:{
     
-    "VAE001": {type: "overlay", category: "CharityAndWorship", layer: {type: "dynamic",visible: true,"name": "Mosques ", "url": "/service/abudhabi/rest/services/CharityAndWorship/MapServer", "layerOptions": {"layers":"show:0",position: 'back'}}}, 
+
+	
+	"VAE002": {type: "overlay", category: "Health facilities", layer: {type: "dynamic",visible: true,"name": "Hospitals", "url": "/service/abudhabi/rest/services/HealthMapService/MapServer", "layerOptions": {"layers":"show:1"}}},
+	"VAE003": {type: "overlay", category: "Health facilities", layer: {type: "dynamic",visible: true,"name": "Polyclinics", "url": "/service/abudhabi/rest/services/HealthMapService/MapServer", "layerOptions": {"layers":"show:2"}}},
+	"VAE004": {type: "overlay", category: "Health facilities", layer: {type: "dynamic",visible: true,"name": "Health Centers", "url": "/service/abudhabi/rest/services/HealthMapService/MapServer", "layerOptions": {"layers":"show:3"}}},
+	"VAE005": {type: "overlay", category: "Health facilities", layer: {type: "dynamic",visible: true,"name": "Health Clinics", "url": "/service/abudhabi/rest/services/HealthMapService/MapServer", "layerOptions": {"layers":"show:4"}}},
+	"VAE006": {type: "overlay", category: "Health facilities", layer: {type: "dynamic",visible: true,"name": "Pharmaceutical Entities", "url": "/service/abudhabi/rest/services/HealthMapService/MapServer", "layerOptions": {"layers":"show:5"}}},
+	"VAE007": {type: "overlay", category: "Health facilities", layer: {type: "dynamic",visible: true,"name": "Provision of Health Service", "url": "/service/abudhabi/rest/services/HealthMapService/MapServer", "layerOptions": {"layers":"show:6"}}},
+	
+	"VAE009": {type: "overlay", category: "مدارس", layer: {type: "dynamic",visible: true,"name": "مدارس حكومية", "url": "/service/abudhabi/rest/services/EDLPublicDataArabic/MapServer", "layerOptions": {"layers":"show:15"}}},
+	"VAE010": {type: "overlay", category: "مدارس", layer: {type: "dynamic",visible: true,"name": "مدارس خاصة", "url": "/service/abudhabi/rest/services/EDLPublicDataArabic/MapServer", "layerOptions": {"layers":"show:16"}}},
+	//"VAE011": {type: "overlay", category: "Education", layer: {type: "dynamic",visible: true,"name": "Higher education", "url": "/service/abudhabi/rest/services/PublicData_WSD/MapServer", "layerOptions": {"layers":"show:11"}}},
+	
+	"VAE012": {type: "overlay", category: "Worship", layer: {type: "dynamic",visible: true,"name": "Mosque", "url": "/service/abudhabi/rest/services/CharityAndWorship/MapServer", "layerOptions": {"layers":"show:0"}}},
+	
+	//"VAE014": {type: "overlay", category: "Tourism", layer: {type: "dynamic",visible: true,"name": "Hotels", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:15"}}},
+	
+	//"VAE024": {type: "overlay", category: "Food", layer: {type: "dynamic",visible: true,"name": "Food supply Establishments", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:24"}}},
+	
 	"VAE027": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "MSL Pressure ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:27"}}},
-    "VAE028": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Mean Temperature ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:28",position: 'back'}}},
-	"VAE029": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Mean Relative Humidity ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:29",position: 'back'}}},
-	"VAE030": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Mean Minimum Temperature", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:30",position: 'back'}}},
-	"VAE031": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Mean Maximum Temperature ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:31",position: 'back'}}},
-	"VAE032": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Absolute Minimum Temperature ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:32",position: 'back'}}},
-	"VAE033": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Absolute Maximum Temperature ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:33",position: 'back'}}},
-	"VAE035": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Tide Stations", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:35",position: 'back'}}},
-	"VAE036": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Marine Site Data", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:36",position: 'back'}}},
-	"VAE037": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Fishing Landing Sites", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:37",position: 'back'}}},
-	"VAE038": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Dredged Channel", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:38",position: 'back'}}},
-	"VAE039": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Protected Areas", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:39",position: 'back'}}},
-	"VAE040": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Coastal Soils", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:40",position: 'back'}}},
-	"VAE041": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Geology", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:41",position: 'back'}}},
-	"VAE042": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Farms", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:42",position: 'back'}}},
-	"VAE043": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Agriculture", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:43",position: 'back'}}},
-	"VAE044": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Terrestrial Habitat", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:44",position: 'back'}}},
-	"VAE046": {type: "overlay", category: "Planning", layer: {type: "dynamic",visible: true,"name": "Road Schemes", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:46",position: 'back'}}},
-    "VAE047": {type: "overlay", category: "Planning", layer: {type: "dynamic",visible: true,"name": "Precincts", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:47",position: 'back'}}},
+    "VAE028": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Mean Temperature ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:28"}}},
+	"VAE029": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Mean Relative Humidity ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:29"}}},
+	"VAE030": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Mean Minimum Temperature", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:30"}}},
+	"VAE031": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Mean Maximum Temperature ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:31"}}},
+	"VAE032": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Absolute Minimum Temperature ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:32"}}},
+	"VAE033": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Absolute Maximum Temperature ", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:33"}}},
+	"VAE035": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Tide Stations", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:35"}}},
+	"VAE036": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Marine Site Data", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:36"}}},
+	"VAE037": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Fishing Landing Sites", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:37"}}},
+	"VAE038": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Dredged Channel", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:38"}}},
+	"VAE039": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Protected Areas", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:39"}}},
+	"VAE040": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Coastal Soils", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:40"}}},
+	"VAE041": {type: "overlay", category: "Environment", layer: {type: "dynamic",visible: true,"name": "Geology", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:41"}}},
+	"VAE042": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Farms", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:42"}}},
+	"VAE043": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Agriculture", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:43"}}},
+	"VAE044": {type: "overlay", category: "Weather", layer: {type: "dynamic",visible: true,"name": "Terrestrial Habitat", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:44"}}},
+	"VAE046": {type: "overlay", category: "Planning", layer: {type: "dynamic",visible: true,"name": "Road Schemes", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:46"}}},
+    "VAE047": {type: "overlay", category: "Planning", layer: {type: "dynamic",visible: true,"name": "Precincts", "url": "/service/abudhabi/rest/services/PublicData/MapServer", "layerOptions": {"layers":"show:47"}}},
 	
     //,"nachtkaart": {"type": "baselayer", "category": "Achtergrond", "layer": {
     //      name: 'Grijstinten',
